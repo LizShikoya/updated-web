@@ -172,6 +172,81 @@ section {
         </div>
         <img src="profile photo.jpg" alt="Profile Picture">
         <h2 style="background-color: pink; padding: 10px; text-align: center; color: white; font-weight: bold;">Personal Information</h2>
+        to get to know more about me, click below.
+        <style>
+            .container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h2 {
+    color: #333;
+  }
+  .info {
+    margin-bottom: 20px;
+    display: none; /* Initially hide personal information */
+  }
+  .info label {
+    font-weight: bold;
+  }
+  .info p {
+    margin: 5px 0;
+  }
+  #toggleInfo {
+    background-color: blue;
+    color: white;
+    border: 2px solid red;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h2>Personal Information</h2>
+  
+  <button id="toggleInfo">View Personal Information</button>
+  
+  <div class="info">
+    <label for="fullname">Full Name:</label>
+    <p>Castro Odhiambo</p>
+  </div>
+  
+  <div class="info">
+    <label for="dob">Date of Birth:</label>
+    <p>12/11/2004</p>
+  </div>
+  
+  <div class="info">
+    <label for="email">Email:</label>
+    <p>castrodhiambo3@gmail.com</p>
+  </div>
+  
+  <div class="info">
+    <label for="phone">Phone:</label>
+    <p>+24759130506</p>
+  </div>
+  
+  <div class="info">
+    <label for="address">Address:</label>
+    <p>P.O Box 13, Kandiege, Homabay, Kenya</p>
+  </div>
+</div>
+
+<script>
+document.getElementById("toggleInfo").addEventListener("click", function() {
+  var infoSections = document.querySelectorAll(".info");
+  infoSections.forEach(function(section) {
+    section.style.display = "block";
+  });
+});
+</script>
+        </style>
         <button id="toggleInfo" style="background-color: blue; color: white; border: 2px solid red; padding: 10px; border-radius: 5px; cursor: pointer;">View Personal Information</button>
 
         <h2 style="background-color: pink; padding: 10px; text-align: center; color: white; font-weight: bold;">Biography</h2>
