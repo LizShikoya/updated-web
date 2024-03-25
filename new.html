@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Interactive Personal Portfolio</title>
+<style>
+  .back-to-menu {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background-color: #007bff;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        display: none; /* Initially hidden */
+        transition: background-color 0.3s ease, bottom 0.3s ease, right 0.3s ease;
+        z-index: 999;
+    }
+
+    .back-to-menu:hover {
+        background-color: #0056b3;
+    }
+/* Reset CSS */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: rgb(27, 181, 233);
+}
+
+/* Navigation styles */
+nav {
+  background-color: red;
+  overflow: hidden;
+}
+
+nav a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 20px;
+  text-decoration: none;
+}
+
+nav a:hover {
+  background-color: green;
+}
+
+.active {
+  background-color: green;
+}
+
+/* Header styles */
+header {
+  background-color: black;
+  color: red;
+  padding: 20px;
+  text-align: center;
+}
+
+/* Main content styles */
+main {
+  padding: 20px;
+}
+
+/* Footer styles */
+footer {
+  background-color: black;
+  color: red;
+  text-align: center;
+  padding: 20px;
+}
+
+/* Page specific styles */
+section {
+  margin-bottom: 20px;
+}
+
+/* Hero Section Styles */
+
+
+/* Featured Projects Styles */
+.featured-projects {
+  margin-top: 50px;
+}
+
+.project {
+  margin-bottom: 30px;
+}
+
+.project img {
+  width: 100%;
+  height: auto;
+}
+
+.project h3 {
+  margin-top: 10px;
+}
+
+.project p {
+  font-size: 16px;
+}
+
+/* Social Media Links Styles */
+.social-media {
+  margin-top: 20px;
+}
+
+.social-media a {
+  color: red;
+  font-size: 24px;
+  margin: 0 10px;
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav>
+  <a href="#home" class="active">Home</a>
+  <a href="#about">About</a>
+  <a href="#services">Services</a>
+  <a href="#projects">Projects</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<!-- Header -->
+<header>
+  <h1>Castro's Portfolio</h1>
+</header>
+
+<!-- Main Content -->
+<main>
+  <!-- Home Page -->
+  <section id="home">
+    <h2>Welcome to Castro's Portfolio</h2>
+    <div class="hero">
+        <h1>Discover My Work</h1>
+        <p>I am Castro Odhiambo,<br>Explore my projects and skills to learn more about what I can offer.</p>
+        <button class="cta-button">Get Started</button>
+        <script>
+            document.getElementById('getStartedBtn').addEventListener('click', function() {
+                document.getElementById('projects').style.display = 'block';
+            });
+        </script>
+    </div>
+    <div class="featured-projects">
+        <h2>Featured Projects</h2>
+        <h3> <p class="caption">Online Voting System</p></h3>
+        <img src="C:\Users\USER\Desktop\updated\project3.png" alt="online voting sytem" style="width: 150px; height: 150px; margin-right: 20px; border: 1px solid #ccc;">
+    </div>
+    
+</section><header>
+  <section id="about">
+    <h2>About Me</h2></header>
+       <b><p>My  profile</b></p>
+        <div class="profile-pic-container ">
+          <style>
+            img{
+              width: 300px;   border: 3px; 
+            }
+          </style>
+        </div>
+        <img src="C:\Users\USER\Desktop\updated\profile photo.jpg" alt="Profile Picture">
+        <h2 style="background-color: pink; padding: 10px; text-align: center; color: white; font-weight: bold;">Biography</h2>
+        <div id="biography" style="padding: 20px;">
+            <h3>Background:</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae feugiat nisi. Proin posuere sapien vel lacus posuere fermentum. Sed consequat libero vitae justo viverra tincidunt. In eget justo eu purus varius bibendum a id mi.</p>
+            <h3>Education:</h3>
+            <p>Phasellus vitae justo id quam aliquam malesuada. Suspendisse potenti. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla facilisi. Suspendisse nec ultrices risus.</p>
+            <h3>Career:</h3>
+            <p>Fusce congue dui in velit mollis, nec suscipit risus tempor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Ut convallis purus euismod, aliquet lorem nec, tincidunt magna.</p>
+            <h3>Achievements:</h3>
+            <p>Sed nec nisl nec lacus fermentum malesuada. Pellentesque euismod mauris eu diam ultricies, vel tempus urna convallis. In nec leo at lectus rhoncus consectetur. Curabitur eget velit sit amet leo suscipit consectetur.</p>
+        </div>
+    </div>
+    <h2 style="background-color: pink; padding: 10px; text-align: center; color: white; font-weight: bold;">Skills</h2>
+    <div id="skills" style="background-color: rgb(10, 228, 119); padding: 20px;">
+        <ul>
+            <li><strong>HTML:</strong> Proficient in writing semantic and accessible HTML code to create the structure of web pages.</li>
+            <li><strong>CSS:</strong> Experienced in styling web pages using CSS, including layout design, responsiveness, and animations.</li>
+            <li><strong>JavaScript:</strong> Skilled in JavaScript programming for creating interactive and dynamic web applications.</li>
+            <li><strong>React:</strong> Familiar with building user interfaces using the React library, including component-based development and state management.</li>
+            <li><strong>Responsive Design:</strong> Knowledgeable in creating responsive websites that adapt to various screen sizes and devices.</li>
+        </ul>
+    </div>
+    <div id="education-timeline" style="background-color: pink; padding: 20px;">
+        <h2 style="text-align: center;">Educational Timeline</h2>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: green; color: black;">
+                    <th style="border: 1px solid black; padding: 10px;">Year</th>
+                    <th style="border: 1px solid black; padding: 10px;">Level</th>
+                    <th style="border: 1px solid black; padding: 10px;">Institution</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid black; padding: 10px;">2016 - 2020</td>
+                    <td style="border: 1px solid black; padding: 10px;">KENYA CERTIFICATE OF PRIMARY EDUACTION</td>
+                    <td style="border: 1px solid black; padding: 10px;">ATHI ZONEPRIMARY</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 10px;">2021 - 2016</td>
+                    <td style="border: 1px solid black; padding: 10px;">KENYA CERTIFICATE OF SECONDARY EDUCATION</td>
+                    <td style="border: 1px solid black; padding: 10px;"> MASOMO BORA HIGH SCOOL</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 10px;">2023 - 2016</td>
+                    <td style="border: 1px solid black; padding: 10px;">DIPLOMA IN INFORMATION TECHNOLOGY</td>
+                    <td style="border: 1px solid black; padding: 10px;"> MAWEGO NATIONAL POLYTECHNIC</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </section>
+
+
+  <!-- Services Page -->
+  <header><section id="services">
+    <h2>Services</h2></header>
+    <p>I offer web design, development, and consulting services.</p>
+    <p>Below are the services I offer:</p>
+    <div id="services-list">
+        <ul>
+            <li><strong>Web Design:</strong> Customized web design solutions tailored to your needs.</li>
+            <li><strong>Web Development:</strong> Building responsive and scalable web applications.</li>
+            <li><strong>Consulting:</strong> Expert advice and guidance on web development projects.</li>
+            <li><strong>SEO Optimization:</strong> Improving your website's visibility and search engine ranking.</li>
+            <li><strong>E-commerce Solutions:</strong> Developing online stores with secure payment gateways.</li>
+        </ul>
+    </div>
+    <div id="services-table" style="background-color: pink; padding: 20px;">
+        <h3 style="text-align: center;">Services Details</h3>
+        <table style="width: 100%; border-collapse: collapse;">
+            <thead>
+                <tr style="background-color: green; color: black;">
+                    <th style="border: 1px solid black; padding: 10px;">Service</th>
+                    <th style="border: 1px solid black; padding: 10px;">Description</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td style="border: 1px solid black; padding: 10px;"><strong>Web Design</strong></td>
+                    <td style="border: 1px solid black; padding: 10px;">Customized web design solutions tailored to your needs.</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 10px;"><strong>Web Development</strong></td>
+                    <td style="border: 1px solid black; padding: 10px;">Building responsive and scalable web applications.</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 10px;"><strong>Consulting</strong></td>
+                    <td style="border: 1px solid black; padding: 10px;">Expert advice and guidance on web development projects.</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 10px;"><strong>SEO Optimization</strong></td>
+                    <td style="border: 1px solid black; padding: 10px;">Improving your website's visibility and search engine ranking.</td>
+                </tr>
+                <tr>
+                    <td style="border: 1px solid black; padding: 10px;"><strong>E-commerce Solutions</strong></td>
+                    <td style="border: 1px solid black; padding: 10px;">Developing online stores with secure payment gateways.</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="testimonials">
+        <h3 style="text-align: center;">Testimonials</h3>
+        <div class="testimonial">
+            <p style="font-style: italic;">"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae feugiat nisi. Proin posuere sapien vel lacus posuere fermentum."</p>
+            <p style="text-align: right;">- John Doe</p>
+        </div>
+        <div class="testimonial">
+            <p style="font-style: italic;">"Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Nulla facilisi. Suspendisse nec ultrices risus."</p>
+            <p style="text-align: right;">- Jane Smith</p>
+        </div>
+    </div>
+</section><header>
+    <section id="projects">
+<h2>Projects</h2></header>
+<div class="project" style="border: 1px solid #ccc; border-radius: 5px; padding: 15px; margin-bottom: 20px; background-color: #fff;">
+    <img src="project1-thumbnail.jpg" alt="Project 1" style="width: 150px; height: 150px; margin-right: 20px; border: 1px solid #ccc;">
+    <div class="project-details">
+        <h3 style="margin-top: 0;">Project 1 Title</h3>
+        <p style="margin-bottom: 10px;">Description: This project is aimed at developing a responsive website using HTML, CSS, and JavaScript.</p>
+        <p style="margin-bottom: 10px;">Technologies Used: HTML, CSS, JavaScript</p>
+        <a href="project1-details.html" class="view-details" style="display: inline-block; padding: 5px 10px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">View Details</a>
+    </div>
+</div>
+<div class="project" style="border: 1px solid #ccc; border-radius: 5px; padding: 15px; margin-bottom: 20px; background-color: #fff;">
+    <img src="project2-thumbnail.jpg" alt="Project 2" style="width: 150px; height: 150px; margin-right: 20px; border: 1px solid #ccc;">
+    <div class="project-details">
+        <h3 style="margin-top: 0;">Project 2 Title</h3>
+        <p style="margin-bottom: 10px;">Description: This project involves building a full-stack web application using React, Node.js, and MongoDB.</p>
+        <p style="margin-bottom: 10px;">Technologies Used: React, Node.js, MongoDB</p>
+        <a href="project2-details.html" class="view-details" style="display: inline-block; padding: 5px 10px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">View Details</a>
+    </div>
+</div>
+<div class="project-details">
+      <h3 style= "background-color: pink; padding: 10px; text-align: center; color: white; font-weight: bold;">3. Online voting System</h3>
+      <img src="C:\Users\USER\Desktop\updated\project3.png" alt="online voting sytem" style="width: 150px; height: 150px; margin-right: 20px; border: 1px solid #ccc;">
+    <p style="margin-bottom: 10px;">Description: This project involves a well designed online voting sytem.</p>
+    <p style="margin-bottom: 10px;">Technologies Used: html, Node.js, MongoDB, CSS</p>
+    
+    <div class="container" id="votingSystem" style="display: none;">
+        <h2>Online Voting System</h2>
+        <form id="votingForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+    
+            <label for="idNumber">ID Number:</label>
+            <input type="text" id="idNumber" name="idNumber" pattern="[0-9]{9}" required title="Enter a valid ID number">
+    
+            <label for="location">Voting Location:</label>
+            <select id="location" name="location" required>
+                <option value="">Select Location</option>
+                <option value="location1">Location 1</option>
+                <option value="location2">Location 2</option>
+                <option value="location3">Location 3</option>
+            </select>
+    
+            <h3>Voting Posts</h3>
+            <label for="mca">MCA:</label>
+            <select id="mca" name="mca" required>
+                <option value="">Select MCA Candidate</option>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <option value="candidate3">Candidate 3</option>
+            </select>
+    
+            <label for="governor">Governor:</label>
+            <select id="governor" name="governor" required>
+                <option value="">Select Governor Candidate</option>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <option value="candidate3">Candidate 3</option>
+            </select>
+    
+            <label for="mp">MP:</label>
+            <select id="mp" name="mp" required>
+                <option value="">Select MP Candidate</option>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <option value="candidate3">Candidate 3</option>
+            </select>
+    
+            <label for="president">President:</label>
+            <select id="president" name="president" required>
+                <option value="">Select President Candidate</option>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <option value="candidate3">Candidate 3</option>
+            </select>
+    
+            <input type="submit" value="Submit Vote">
+        </form>
+    </div>
+    
+    <button onclick="toggleVotingSystem()"style="display: inline-block; padding: 5px 10px; background-color: #007bff; color: #fff; text-decoration: none; border-radius: 5px;">View Details</button>
+    
+    <script>
+        function toggleVotingSystem() {
+            var votingSystem = document.getElementById('votingSystem');
+            if (votingSystem.style.display === 'none') {
+                votingSystem.style.display = 'block';
+            } else {
+                votingSystem.style.display = 'none';
+            }
+        }
+    </script>
+    
+    <style>
+        /* Additional Styles for Projects Section */
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+        }
+    
+        h2 {
+            color: #f50a2a; /* Blue title */
+            margin-bottom: 20px;
+        }
+    
+        form {
+            margin-bottom: 20px;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Dark text */
+        }
+    
+        input[type="text"],
+        select {
+            width: calc(100% - 22px); /* Adjust width to fit container */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    
+        input[type="submit"] {
+            background-color: #28a745; /* Green button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+    
+        input[type="submit"]:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+    
+        select {
+            background-color: #fff;
+        }
+    </style>
+    
+</div>
+<!-- Add more project divs as needed -->
+</section><header>
+<section id="contact">
+<section id="contact" style="padding: 20px; text-align: center; color: red;">
+    <h2>Contact Castro</h2></header>
+    <form id="contact-form" style="background-color: #ffa500; max-width: 400px; margin: 0 auto; padding: 20px; border-radius: 10px;">
+        
+        <div class="contact-info">
+            <p><strong>Name:</strong> Castro Odhiambo</p>
+            <p><strong>Email:</strong> castrodhiambo3@gmail.com</p>
+            <p><strong>Phone:</strong> +254759130506</p>
+            <p><strong>Address:</strong> 13 kandiege, Homabay , Kenya</p>
+        </div>
+        <input type="text" id="name" name="name" placeholder="Your Name" required style="width: 100%; padding: 10px; margin-top: 10px; margin-bottom: 20px; border: none; border-radius: 5px; box-sizing: border-box;"><br>
+        <input type="email" id="email" name="email" placeholder="Your Email" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: none; border-radius: 5px; box-sizing: border-box;"><br>
+        <input type="text" id="subject" name="subject" placeholder="Subject" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: none; border-radius: 5px; box-sizing: border-box;"><br>
+        <textarea id="message" name="message" placeholder="Your Message" rows="4" required style="width: 100%; padding: 10px; margin-bottom: 20px; border: none; border-radius: 5px; box-sizing: border-box;"></textarea><br>
+        <input type="submit" value="Submit" style="background-color: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">
+    </form>
+    <div class="contact-info" style="margin-top: 20px;">
+        <p>Other Contact Details:<br></p>
+        <div style="border: 4px solid red; background-color: #28a745; padding: 10px; width: fit-content; margin: 0 auto; color: white;">
+            <p style="margin-bottom: 5px;">P.O Box 13 Kandiege 40304, Homabay- Kenya</p>
+            <p style="margin-bottom: 5px;">Email:  <a href="mailto:castrodhiambo3@gmail.com">castrodhiambo3@gmail.com</a></p>
+            <p style="margin-bottom: 5px;">Phone: 0759-13-0506</p>
+        </div>
+           <br><br>
+    </div>
+    <div style="border: 4px solid red; background-color: #28a745; padding: 10px; width: fit-content; margin: 0 auto; color: white;">
+        <h3 style="text-align: center; margin-bottom: 10px;">Contact Me on Social Media</h3>
+        <div class="social-links" style="margin-top: 20px;">
+            <a href = "https://wa.me/254759130506" target="_blank"> Whatsapp</a><br>
+<a href = "https://web.facebook.com/profile.php?id=61550674929103" target="_blank">Message me on Facebook</a><br>
+<a href = "mailto: castrodhimbo3@gmail.com" target="_blank">Send an email</a><br>
+
+            <a href="#" target="_blank" style="text-decoration: none; color: #edf2f7; margin-right: 10px;">Twitter</a>
+            <a href="#" target="_blank" style="text-decoration: none; color: #eaeff5; margin-right: 10px;">Instagram</a>
+        </div>
+    </div>
+    
+    </div>
+    <!-- Optional Map -->
+    <!-- <div id="map"></div> -->
+</section>
+
+<script>
+    // JavaScript code can be added here if needed
+</script>
+  <!-- HTML for Back to Menu Button -->
+  <button id="backToMenuBtn" class="back-to-menu">Back to Menu</button>
+
+  <script>
+       window.addEventListener('scroll', function () {
+        var button = document.getElementById('backToMenuBtn');
+        if (window.scrollY > 100) {
+            button.style.display = 'block';
+            if (window.scrollY > this.scrollY) {
+                // Scrolling down
+                button.style.bottom = '20px';
+            } else {
+                // Scrolling up
+                button.style.bottom = 'calc(100vh - 50px)';
+            }
+        } else {
+            button.style.display = 'none';
+        }
+    });
+
+    document.getElementById('backToMenuBtn').addEventListener('click', function () {
+        var navBar = document.querySelector('nav');
+        navBar.scrollIntoView({ behavior: 'smooth' });
+    });
+  </script>
+
+</body>
+<div class="sliding-text-container">
+    <div class="sliding-text">You're currently viewing Castro's Web Portfolio</div>
+</div>
+
+<style>
+    /* CSS for Sliding Text Container */
+    .sliding-text-container {
+        position: fixed;
+        top: 50%;
+        left: 100%;
+        transform: translate(-100%, -50%);
+        border: 4px solid #000;
+        padding: 10px;
+        background-color: orange;
+        overflow: hidden;
+        white-space: nowrap;
+        animation: slide 10s linear infinite;
+    }
+
+    /* CSS for Sliding Text */
+    .sliding-text {
+        color: #fff;
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff6600, 0 0 30px #ff3300, 0 0 40px #ff0000, 0 0 70px #ff0000, 0 0 80px #ff6600, 0 0 100px #ff3300;
+    }
+
+    @keyframes slide {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(-100%);
+        }
+    }
+</style>
+
+
+<header><br>
+    <footer>
+        <h3>Connect with Me</h3>
+        <ul class="social-media-links">
+            <a href="https://linkedin.com/your-profile" target="_blank">LinkedIn</a><br>
+            <a href = "https://web.facebook.com/profile.php?id=61550674929103" target="_blank">Facebook</a><br>
+            <a href="https://github.com/CastrOdhiambo" target="_blank">GitHub</a><br>
+            <!-- Add more social media links as needed -->
+        </ul>
+    </footer>
+</header>
+
+</html>
