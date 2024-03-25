@@ -223,6 +223,21 @@ section {
         </table>
     </div>
     </section>
+    <p>View attached below is my curriculum vitae</p>
+    <script>
+        function toggleCV() {
+          var iframe = document.getElementById("cvFrame");
+          if (iframe.style.display === "none") {
+            iframe.style.display = "block";
+          } else {
+            iframe.style.display = "none";
+          }
+        }
+        </script>
+        <button onclick="toggleCV()">View CV</button>
+
+        <iframe id="cvFrame" src="cv" width="800" height="600" frameborder="0" style="display: none;"></iframe>
+        
 
 
   <!-- Services Page -->
