@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Computer Studies Revision</title>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #333;
+}
+
+.question {
+    margin-bottom: 20px;
+}
+
+.choices {
+    margin-bottom: 10px;
+}
+
+.choice {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="checkbox"] {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #666;
+    border-radius: 50%;
+    margin-right: 10px;
+    cursor: pointer;
+    vertical-align: middle;
+}
+
+input[type="checkbox"]:checked {
+    background-color: #4CAF50;
+}
+
+label {
+    vertical-align: middle;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+.timer {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+</style>
+</head>
+<body>
+<div class="container" id="login-page">
+    <h1>Computer Studies Revision - Login</h1>
+    <form id="login-form">
+        <label for="reg-number">Registration Number:</label>
+        <input type="text" id="reg-number" required><br>
+        <label for="username">Username:</label>
+        <input type="text" id="username" required><br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required><br>
+        <button type="submit">Login</button>
+    </form>
+</div>
+
+<div class="container" id="quiz-page" style="display: none;">
+    <h1>Computer Studies Revision - Quiz</h1>
+    <div class="question" id="question"></div>
+    <div class="choices" id="choices"></div>
+    <button id="prev-btn" style="display: none;" onclick="prevQuestion()">Previous</button>
+    <button id="next-btn" onclick="nextQuestion()">Next</button>
+    <button id="submit-btn" style="display: none;" onclick="submitQuiz()">Submit</button>
+    <button id="close-btn" style="display: none;" onclick="closeWindow()">Close</button>
+</div>
+<div class="timer" id="timer"></div>
+
+<script>
+const questions = [
+    {
+        question: "What does HTML stand for?",
+        choices: ["Hyper Text Markup Language", "Hyperlinks and Text Markup Language", "Home Tool Markup Language", "Hyper Tool Markup Language"],
+        answer: "Hyper Text Markup Language"
+    },
+    {
+        question: "Which of the following is not a programming language?",
+        choices: ["Java", "Python", "HTML", "C++"],
+        answer: "HTML"
+    },
+    {
+        question: "What does CSS stand for?",
+        choices: ["Cascading Style Sheets", "Creative Style Sheets", "Computer Style Sheets", "Colorful Style Sheets"],
+        answer: "Cascading Style Sheets"
+    },
+    {
+        question: "Which company developed JavaScript?",
+        choices: ["Microsoft", "Sun Microsystems", "Oracle", "Netscape"],
+        answer: "Netscape"
+    },
+    {
+        question: "What does SQL stand for?",
+        choices: ["Structured Query Language", "Standard Query Language", "Stylish Query Language", "Statistical Query Language"],
+        answer: "Structured Query Language"
+    }
+];
+
+let currentQuestionIndex = 0;
+let score = 0;
+let timerSeconds = 300;
+let timerInterval;
+
+function displayQuestion() {
+    const questionElem = document.getElementById("question");
+    const choicesElem = document.getElementById("choices");
+    const currentQuestion = questions[currentQuestionIndex];
+    questionElem.textContent = currentQuestion.question;
+    choicesElem.innerHTML = "";
+    currentQuestion.choices.forEach((choice, index) => {
+        const choiceElem = document.createElement("div");
+        choiceElem.classList.add("choice");
+        choiceElem.innerHTML = `<input type="checkbox" id="choice${index}" onclick="checkAnswer(${index})">
+                                <label for="choice${index}">${String.fromCharCode(65 + index)}. ${choice}</label>`;
+        choicesElem.appendChild(choiceElem);
+    });
+}
+
+function checkAnswer(choiceIndex) {
+    const currentQuestion = questions[currentQuestionIndex];
+    if (currentQuestion.choices[choiceIndex] === currentQuestion.answer) {
+        score++;
+    }
+    nextQuestion();
+}
+
+function prevQuestion() {
+    if (currentQuestionIndex > 0) {
+        currentQuestionIndex--;
+        displayQuestion();
+        updateButtonsVisibility();
+    }
+}
+
+function nextQuestion() {
+    if (currentQuestionIndex < questions.length - 1) {
+        currentQuestionIndex++;
+        displayQuestion();
+        updateButtonsVisibility();
+    } else {
+        clearInterval(timerInterval);
+        displayResult();
+    }
+}
+
+function updateButtonsVisibility() {
+    document.getElementById("prev-btn").style.display = currentQuestionIndex === 0 ? "none" : "inline-block";
+    document.getElementById("next-btn").style.display = currentQuestionIndex === questions.length - 1 ? "none" : "inline-block";
+    document.getElementById("submit-btn").style.display = currentQuestionIndex === questions.length - 1 ? "inline-block" : "none";
+}
+
+function startTimer() {
+    const timerElem = document.getElementById("timer");
+    timerInterval = setInterval(() => {
+        const minutes = Math.floor(timerSeconds / 60);
+        const seconds = timerSeconds % 60;
+        timerElem.textContent = `Time Left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+        if (timerSeconds === 0) {
+            clearInterval(timerInterval);
+            submitQuiz();
+        }
+        timerSeconds--;
+    }, 1000);
+}
+
+function displayResult() {
+    const container = document.getElementById("quiz-page");
+    container.innerHTML = `<h1>Quiz Completed</h1>
+                          <p>Welcome ${document.getElementById("username").value}</p>
+                          <p>Your score: ${score} / ${questions.length}</p>
+                          <p>Percentage: ${(score / questions.length * 100).toFixed(2)}%</p>
+                          <p>${score < questions.length / 2 ? "Fail" : "Congratulations, you passed!"}</p>
+                          <button id="close-btn" onclick="closeWindow()">Close</button>`;
+}
+
+function closeWindow() {
+    window.close();
+}
+
+document.getElementById("login-form").addEventListener("submit", function(event) {
+    event.preventDefault();
+    document.getElementById("login-page").style.display = "none";
+    document.getElementById("quiz-page").style.display = "block";
+    displayQuestion();
+    startTimer();
+    updateButtonsVisibility();
+});
+</script>
+</body>
+</html>
