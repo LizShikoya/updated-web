@@ -15,8 +15,13 @@ header {
     justify-items: center;
     text-align: center;
     font-size: x-large;
+
     
 }
+nav {
+    background-color: red;
+    overflow: hidden;
+  }
 nav a {
     color: rgb(175, 9, 9);
 }
