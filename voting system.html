@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Voting System</title>
+    <style>
+        /* CSS for Online Voting System */
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #007bff; /* Blue background */
+            color: #fff; /* White text */
+            text-align: center; /* Center align title */
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Add shadow effect */
+        }
+
+        h2 {
+            color: #007bff; /* Blue title */
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            color: #333; /* Dark text */
+        }
+
+        input[type="text"],
+        select {
+            width: calc(100% - 22px); /* Adjust width to fit container */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        input[type="submit"] {
+            background-color: #28a745; /* Green button */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #218838; /* Darker green on hover */
+        }
+
+        select {
+            background-color: #fff;
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h2>Online Voting System</h2>
+        <form id="votingForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="idNumber">ID Number:</label>
+            <input type="text" id="idNumber" name="idNumber" pattern="[0-9]{9}" required title="Enter a valid ID number">
+
+            <label for="location">Voting Location:</label>
+            <select id="location" name="location" required>
+                <option value="">Select Location</option>
+                <option value="location1">Location 1</option>
+                <option value="location2">Location 2</option>
+                <option value="location3">Location 3</option>
+            </select>
+
+            <h3>Voting Posts</h3>
+            <label for="mca">MCA:</label>
+            <select id="mca" name="mca" required>
+                <option value="">Select MCA Candidate</option>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <option value="candidate3">Candidate 3</option>
+            </select>
+
+            <label for="governor">Governor:</label>
+            <select id="governor" name="governor" required>
+                <option value="">Select Governor Candidate</option>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <option value="candidate3">Candidate 3</option>
+            </select>
+
+            <label for="mp">MP:</label>
+            <select id="mp" name="mp" required>
+                <option value="">Select MP Candidate</option>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <option value="candidate3">Candidate 3</option>
+            </select>
+
+            <label for="president">President:</label>
+            <select id="president" name="president" required>
+                <option value="">Select President Candidate</option>
+                <option value="candidate1">Candidate 1</option>
+                <option value="candidate2">Candidate 2</option>
+                <option value="candidate3">Candidate 3</option>
+            </select>
+
+            <input type="submit" value="Submit Vote">
+        </form>
+    </div>
+
+    <script>
+        // JavaScript for Online Voting System
+        document.getElementById('votingForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+            var idNumber = document.getElementById('idNumber').value;
+            // Check if user has already voted using ID number
+            if (localStorage.getItem(idNumber)) {
+                alert('You have already voted!');
+            } else {
+                // Implement voting logic here
+                alert('Vote submitted successfully!');
+                // Save ID number to indicate user has voted
+                localStorage.setItem(idNumber, 'voted');
+            }
+        });
+</script>
+
+</body>
+
+</html>
