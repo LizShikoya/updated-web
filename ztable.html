@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Z-Table Generator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 20px;
+    }
+    table {
+        border-collapse: collapse;
+        width: 100%;
+    }
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>
+</head>
+<body>
+<h2>Z-Table Generator</h2>
+<table id="zTable">
+    <thead>
+        <tr>
+            <th>Z-Score</th>
+            <th>Probability</th>
+        </tr>
+    </thead>
+    <tbody id="zTableBody">
+    </tbody>
+</table>
+
+<script>
+    // Function to calculate the cumulative probability for a given z-score
+    function cumulativeProbability(z) {
+        return (1 + erf(z / Math.sqrt(2))) / 2;
+    }
+
+    // Error function approximation
+    function erf(z) {
+        const t = 1.0 / (1.0 + 0.5 * Math.abs(z));
+        const ans = 1 - t * Math.exp( -z*z   -   1.26551223 +
+                                    t * ( 1.00002368 +
+                                    t * ( 0.37409196 +
+                                    t * ( 0.09678418 +
+                                    t * (-0.18628806 +
+                                    t * ( 0.27886807 +
+                                    t * (-1.13520398 +
+                                    t * ( 1.48851587 +
+                                    t * (-0.82215223 +
+                                    t * ( 0.17087277))))))))));
+        return z >= 0 ? ans : -ans;
+    }
+
+    // Function to generate z-table for specified z-scores
+    function generateZTable(zScores) {
+        const tableBody = document.getElementById('zTableBody');
+        zScores.forEach(z => {
+            const probability = cumulativeProbability(z);
+            const row = document.createElement('tr');
+            row.innerHTML = `<td>${z.toFixed(2)}</td><td>${probability.toFixed(4)}</td>`;
+            tableBody.appendChild(row);
+        });
+    }
+
+    // Example: Generate z-table for selected z-scores
+    const zScores = [-3, -2, -1, 0, 1, 2, 3];
+    generateZTable(zScores);
+</script>
+</body>
+</html>
